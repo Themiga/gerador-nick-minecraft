@@ -81,7 +81,7 @@
 
     <div class="container">
         <h1>Gerador de Nick Minecraft</h1>
-        <p>3 a 16 caracteres (Letras, números e _)</p>
+        <p>Exatamente 16 caracteres (Letras, números e _)</p>
         
         <div class="nick-display" id="resultadoNick">...</div>
         
@@ -90,13 +90,8 @@
 
     <script>
         function gerarNickAleatorio() {
-            // Regras do Minecraft: a-z, A-Z, 0-9 e _
             const caracteresPermitidos = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_';
-            
-            // Define um tamanho aleatório entre 3 e 16 caracteres
-            const tamanhoMinimo = 3;
-            const tamanhoMaximo = 16;
-            const tamanhoNick = Math.floor(Math.random() * (tamanhoMaximo - tamanhoMinimo + 1)) + tamanhoMinimo;
+            const tamanhoNick = 16;
             
             let nickGerado = '';
             
@@ -105,7 +100,6 @@
                 nickGerado += caracteresPermitidos.charAt(indiceAleatorio);
             }
             
-            // Exibe o resultado na tela
             document.getElementById('resultadoNick').innerText = nickGerado;
         }
     </script>
