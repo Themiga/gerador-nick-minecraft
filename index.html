@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Nickname - Minecraft</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #34495e;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #2ecc71;
+        }
+
+        p {
+            font-size: 14px;
+            margin-bottom: 30px;
+            color: #bdc3c7;
+        }
+
+        .nick-display {
+            background-color: #1a252f;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            word-break: break-all;
+            min-height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button {
+            background-color: #27ae60;
+            color: #ffffff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #2ecc71;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Gerador de Nick Minecraft</h1>
+        <p>3 a 16 caracteres (Letras, números e _)</p>
+        
+        <div class="nick-display" id="resultadoNick">...</div>
+        
+        <button onclick="gerarNickAleatorio()">Gerar Nickname</button>
+    </div>
+
+    <script>
+        function gerarNickAleatorio() {
+            // Regras do Minecraft: a-z, A-Z, 0-9 e _
+            const caracteresPermitidos = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_';
+            
+            // Define um tamanho aleatório entre 3 e 16 caracteres
+            const tamanhoMinimo = 3;
+            const tamanhoMaximo = 16;
+            const tamanhoNick = Math.floor(Math.random() * (tamanhoMaximo - tamanhoMinimo + 1)) + tamanhoMinimo;
+            
+            let nickGerado = '';
+            
+            for (let i = 0; i < tamanhoNick; i++) {
+                const indiceAleatorio = Math.floor(Math.random() * caracteresPermitidos.length);
+                nickGerado += caracteresPermitidos.charAt(indiceAleatorio);
+            }
+            
+            // Exibe o resultado na tela
+            document.getElementById('resultadoNick').innerText = nickGerado;
+        }
+    </script>
+
+</body>
+</html>
